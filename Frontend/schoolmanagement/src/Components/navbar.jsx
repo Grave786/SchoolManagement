@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { FaBars, FaTimes, FaUser, FaBell, FaSun, FaMoon } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(3);
-  const { isAuthenticated, userRole, logout } = useAuth();
-
+  // const { isAuthenticated, userRole, logout } = useAuth();
+ const isAuthenticated = true;
+ const userRole = "student";
+ const logout = false;
+ 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
