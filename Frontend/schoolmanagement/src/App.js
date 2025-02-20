@@ -3,6 +3,7 @@ import './App.css';
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from './Components/navbar';
 import RegistrationForm from './Components/RegistrationForm';
+import LoginForm from './Components/LoginForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Footer from './Components/Footer';
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<RegistrationForm />} />
+              <Route path="/login" element={<LoginForm />} />
             </Routes>
           <Footer />
         </div>

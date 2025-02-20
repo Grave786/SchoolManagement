@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = "http://localhost:5000/api";
 
 export const signup = async (userData) => {
   try {
@@ -37,15 +37,27 @@ export const login = async (credentials) => {
 export const logout = async () => {
   try {
     const response = await fetch(`${BASE_URL}/auth/logout`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include", // Ensure cookies are sent
+      headers: {
+        "Content-Type": "application/json", 
+      },
     });
 
-    if (!response.ok) throw new Error('Logout failed');
+    const data = await response.json(); // Log response from server
+
+    if (!response.ok) {
+      console.error("Logout error:", data);
+      throw new Error("Logout failed");
+    }
+
+    console.log("Logout successful:", data);
   } catch (error) {
+    console.error("Logout request error:", error);
     throw error;
   }
 };
+
 
 export const updateProfile = async (profileData) => {
   try {
